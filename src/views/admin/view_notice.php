@@ -47,7 +47,7 @@ $notices = $noticesQuery ? $noticesQuery->fetch_all(MYSQLI_ASSOC) : [];
       </small>
       
       <!-- ✅ Delete button -->
-      <form action="delete_notice.php" method="GET" onsubmit="return confirm('Are you sure you want to delete this notice?');">
+      <form action="delete_notice.php">
           <input type="hidden" name="notice_id" value="<?php echo $n['notice_id']; ?>">
           <button type="submit" class="delete-btn">Delete</button>
       </form>
