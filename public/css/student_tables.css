@@ -1,0 +1,131 @@
+/* === css/students_table.css === */
+
+/* --- Action Bar and Buttons --- */
+.actions-bar {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #3498db; /* Blue */
+    color: white;
+    border: 1px solid #3498db;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: #ecf0f1; /* Light Grey */
+    color: #34495e; /* Dark text */
+    border: 1px solid #bdc3c7;
+}
+
+.btn-secondary:hover {
+    background-color: #bdc3c7;
+}
+
+
+/* --- Data Table Styles --- */
+
+.table-responsive {
+    overflow-x: auto; /* Allows table to scroll horizontally on small screens */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Table Header (<thead>) */
+.data-table thead tr {
+    background-color: #f5f7fa; /* Very light blue-grey */
+    border-bottom: 2px solid #e0e6ed;
+}
+
+.data-table th {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    font-weight: 600;
+    color: #34495e; /* Darker text */
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Table Body (<tbody>) */
+.data-table td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #e0e6ed; /* Light separator line */
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.data-table tbody tr:hover {
+    background-color: #fcfdff; /* Subtle hover effect */
+}
+
+/* Action Links */
+.action-links a {
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0 0.25rem;
+    transition: color 0.2s;
+}
+
+.action-edit {
+    color: #3498db; /* Blue */
+}
+
+.action-edit:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.action-delete {
+    color: #e74c3c; /* Red */
+}
+
+.action-delete:hover {
+    color: #c0392b;
+    text-decoration: underline;
+}
+
+.separator {
+    color: #bdc3c7; /* Light separator color */
+    margin: 0 0.5rem;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 600px) {
+    .actions-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    .data-table {
+        font-size: 0.85rem;
+    }
+    .data-table th, .data-table td {
+        padding: 0.75rem 0.5rem;
+    }
+}

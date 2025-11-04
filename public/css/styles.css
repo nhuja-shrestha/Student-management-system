@@ -1,0 +1,121 @@
+/* --- Global Styles --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f4f8; /* Light blue-grey background */
+    color: #333;
+}
+
+/* --- Login Container --- */
+.login-container {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    margin: 1rem;
+}
+
+.login-container h2 {
+    margin: 0 0 0.75rem;
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: #2c3e50; /* Dark blue */
+}
+
+.login-container .subtitle {
+    font-size: 1rem;
+    color: #7f8c8d; /* Grey text */
+    margin-bottom: 2rem;
+}
+
+/* --- Form Styles --- */
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container label {
+    text-align: left;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    padding: 0.8rem 1rem;
+    border: 1px solid #bdc3c7; /* Light grey border */
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* --- Input Focus Effect --- */
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    outline: none;
+    border-color: #3498db; /* Primary blue */
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* --- Submit Button --- */
+.login-container input[type="submit"] {
+    background-color: #3498db; /* Primary blue */
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    margin-top: 0.5rem;
+}
+
+.login-container input[type="submit"]:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: translateY(-2px);
+}
+
+.login-container input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* --- Error Message --- */
+.error-message {
+    color: #e74c3c; /* Red */
+    background-color: #fbeae9; /* Faint red background */
+    border: 1px solid #e74c3c;
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 2rem;
+    }
+
+    .login-container h2 {
+        font-size: 1.8rem;
+    }
+}
