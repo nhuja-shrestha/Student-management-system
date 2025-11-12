@@ -48,10 +48,13 @@ if (isset($_POST['submit_marks']) && $assigned_subject_id) {
     $exam_name = mysqli_real_escape_string($conn, $_POST['exam_name']);
     $total_marks = (int)$_POST['total_marks'];
     $current_date = date('Y-m-d');
-
+         $error = false; // Flag to track invalid marks
     foreach ($_POST['marks'] as $student_user_id => $marks_obtained) {
         $marks_obtained = (int)$marks_obtained;
-        if ($marks_obtained > $total_marks || $marks_obtained < 0) continue;
+        if ($marks_obtained > $total_marks || $marks_obtained < 0) {
+            $error = true;
+            break;
+        }
 
         $find_student_id_query = "SELECT student_id FROM students WHERE user_id = $student_user_id";
         $student_row = mysqli_fetch_assoc(mysqli_query($conn, $find_student_id_query));
@@ -61,6 +64,10 @@ if (isset($_POST['submit_marks']) && $assigned_subject_id) {
             INSERT INTO marks (student_id, subject_id, exam_name, marks_obtained, total_marks, exam_date)
             VALUES ($student_id, $assigned_subject_id, '$exam_name', $marks_obtained, $total_marks, '$current_date')";
         mysqli_query($conn, $marks_insert_sql);
+    }
+     if ($error) {
+        echo "<script>alert('Error: Obtained marks cannot exceed total marks or be negative!'); window.history.back();</script>";
+        exit;
     }
 
     header("Location: dashboard.php?status=marks_saved");
