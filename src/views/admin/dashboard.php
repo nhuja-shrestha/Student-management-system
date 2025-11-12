@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 // 1. Security Check
@@ -57,7 +58,7 @@ mysqli_close($conn);
         
         <nav class="sidebar">
             <div class="sidebar-header">
-                <h2>SMS Admin</h2>
+                <h2>Admin Panel</h2>
                 <p>Welcome, <strong><?php echo htmlspecialchars($_SESSION['username']); ?>!</strong></p>
             </div>
             
@@ -66,7 +67,7 @@ mysqli_close($conn);
                 <li><a href="teachers.php">Manage Teachers</a></li>
                 <li> <a href="view_notice.php">Notices</a></li>
                 <li><a href="add_notice.php">Add Notices</a></li>
-                
+                <li><a href="/student-management-system/public/logout.php">Logout</a></li>
             </ul>
 
          
@@ -113,10 +114,6 @@ mysqli_close($conn);
                 </div>
             </div>
           <div class="summary-card">  
-
- <div class="logout-link">
-                <a href="/student-management-system/public/logout.php">Logout</a>
-            </div>
 </div>
   
         </main>

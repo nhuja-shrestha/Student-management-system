@@ -1,0 +1,99 @@
+/* Base + Sidebar + Main layout same as before */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  overflow-x: hidden;
+}
+
+.dashboard-layout { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #0f172a 0%, #1e3a8a 100%);
+  color: white;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+  animation: slideInLeft 0.5s ease-out;
+}
+
+.sidebar-header { padding: 30px 25px; background: rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.1); }
+.sidebar-header h2 { font-size: 24px; background: linear-gradient(135deg,#60a5fa,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+
+.sidebar-nav { list-style:none; padding:20px 0; }
+.sidebar-nav a { display:block; padding:15px 25px; color:rgba(255,255,255,0.8); text-decoration:none; transition:.3s; border-left:4px solid transparent; }
+.sidebar-nav a:hover { color:#fff; background:rgba(255,255,255,0.05); border-left-color:#3b82f6; transform:translateX(5px); }
+
+.main-content {
+  flex:1;
+  margin-left:280px;
+  padding:40px;
+  animation:fadeInUp 0.6s ease-out;
+}
+
+.main-content h1 {
+  font-size:36px; font-weight:700; color:#1e293b; margin-bottom:30px; position:relative;
+}
+.main-content h1::after {
+  content:''; position:absolute; bottom:-8px; left:0; width:60px; height:4px;
+  background:linear-gradient(90deg,#3b82f6,#60a5fa); border-radius:2px;
+}
+
+/* Summary Cards */
+.summary-card {
+  background:white; padding:30px; border-radius:16px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.08); margin-bottom:30px; transition:all .3s;
+}
+.summary-card:hover { transform:translateY(-5px); box-shadow:0 8px 25px rgba(59,130,246,0.15); }
+
+.summary-card h3 { font-size:18px; color:#1e3a8a; margin-bottom:15px; }
+.summary-card p { margin-bottom:8px; font-size:15px; }
+
+/* Tables */
+.styled-table {
+  width:100%; border-collapse:collapse; margin-top:15px;
+}
+.styled-table th, .styled-table td {
+  border:1px solid #ddd; padding:10px; text-align:center;
+}
+.styled-table th { background:#3b82f6; color:white; }
+.styled-table tr:nth-child(even){ background:#f8fafc; }
+
+/* Form Elements */
+.styled-form input[type="text"],
+.styled-form input[type="number"],
+.styled-form input[type="date"] {
+  padding:8px 10px; border:1px solid #ccc; border-radius:6px; margin:5px;
+}
+
+.btn {
+  background:linear-gradient(135deg,#3b82f6,#2563eb);
+  border:none; color:white; padding:10px 20px; border-radius:8px;
+  cursor:pointer; margin-top:10px; transition:.3s;
+}
+.btn:hover { transform:translateY(-2px); box-shadow:0 6px 15px rgba(59,130,246,0.3); }
+
+.card-link a {
+  display:inline-block; margin-right:15px; color:#3b82f6; text-decoration:none; font-weight:600;
+}
+.card-link a:hover { text-decoration:underline; color:#1e40af; }
+
+@keyframes slideInLeft {
+  0% { transform:translateX(-100%); opacity:0; }
+  100% { transform:translateX(0); opacity:1; }
+}
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(30px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+@media(max-width:768px){
+  .sidebar{width:250px; transform:translateX(-100%);}
+  .main-content{margin-left:0; padding:25px;}
+}
